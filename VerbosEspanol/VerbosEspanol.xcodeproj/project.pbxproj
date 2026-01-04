@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+archiveVersion = 1;
+classes = {
+};
+objectVersion = 56;
+objects = {
+
+/* Begin PBXBuildFile section */
+A11111110000000000000001 /* VerbosEspanolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000001 /* VerbosEspanolApp.swift */; };
+A11111110000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000002 /* ContentView.swift */; };
+A11111110000000000000003 /* Verb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000003 /* Verb.swift */; };
+A11111110000000000000004 /* VerbData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000004 /* VerbData.swift */; };
+A11111110000000000000005 /* LearningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000005 /* LearningManager.swift */; };
+A11111110000000000000006 /* WritingExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000006 /* WritingExerciseView.swift */; };
+A11111110000000000000007 /* SpeakingExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000007 /* SpeakingExerciseView.swift */; };
+A11111110000000000000008 /* VerbListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000008 /* VerbListView.swift */; };
+A11111110000000000000009 /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000009 /* FlashcardView.swift */; };
+A11111110000000000000010 /* VerbOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000010 /* VerbOfTheDayView.swift */; };
+A11111110000000000000011 /* PracticeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000011 /* PracticeMenuView.swift */; };
+A11111110000000000000012 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000012 /* ProgressView.swift */; };
+A11111110000000000000020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A22222220000000000000020 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+A00000000000000000000001 /* VerbosEspanol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VerbosEspanol.app; sourceTree = BUILT_PRODUCTS_DIR; };
+A22222220000000000000001 /* VerbosEspanolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbosEspanolApp.swift; sourceTree = "<group>"; };
+A22222220000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+A22222220000000000000003 /* Verb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verb.swift; sourceTree = "<group>"; };
+A22222220000000000000004 /* VerbData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbData.swift; sourceTree = "<group>"; };
+A22222220000000000000005 /* LearningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningManager.swift; sourceTree = "<group>"; };
+A22222220000000000000006 /* WritingExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingExerciseView.swift; sourceTree = "<group>"; };
+A22222220000000000000007 /* SpeakingExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingExerciseView.swift; sourceTree = "<group>"; };
+A22222220000000000000008 /* VerbListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbListView.swift; sourceTree = "<group>"; };
+A22222220000000000000009 /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
+A22222220000000000000010 /* VerbOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbOfTheDayView.swift; sourceTree = "<group>"; };
+A22222220000000000000011 /* PracticeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeMenuView.swift; sourceTree = "<group>"; };
+A22222220000000000000012 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+A22222220000000000000020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+A33333330000000000000001 /* Frameworks */ = {
+isa = PBXFrameworksBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+A44444440000000000000001 = {
+isa = PBXGroup;
+children = (
+A44444440000000000000002 /* VerbosEspanol */,
+A44444440000000000000003 /* Products */,
+);
+sourceTree = "<group>";
+};
+A44444440000000000000002 /* VerbosEspanol */ = {
+isa = PBXGroup;
+children = (
+A22222220000000000000001 /* VerbosEspanolApp.swift */,
+A44444440000000000000004 /* Models */,
+A44444440000000000000005 /* ViewModels */,
+A44444440000000000000006 /* Views */,
+A22222220000000000000020 /* Assets.xcassets */,
+);
+path = VerbosEspanol;
+sourceTree = "<group>";
+};
+A44444440000000000000003 /* Products */ = {
+isa = PBXGroup;
+children = (
+A00000000000000000000001 /* VerbosEspanol.app */,
+);
+name = Products;
+sourceTree = "<group>";
+};
+A44444440000000000000004 /* Models */ = {
+isa = PBXGroup;
+children = (
+A22222220000000000000003 /* Verb.swift */,
+A22222220000000000000004 /* VerbData.swift */,
+);
+path = Models;
+sourceTree = "<group>";
+};
+A44444440000000000000005 /* ViewModels */ = {
+isa = PBXGroup;
+children = (
+A22222220000000000000005 /* LearningManager.swift */,
+);
+path = ViewModels;
+sourceTree = "<group>";
+};
+A44444440000000000000006 /* Views */ = {
+isa = PBXGroup;
+children = (
+A22222220000000000000002 /* ContentView.swift */,
+A22222220000000000000006 /* WritingExerciseView.swift */,
+A22222220000000000000007 /* SpeakingExerciseView.swift */,
+A22222220000000000000008 /* VerbListView.swift */,
+A22222220000000000000009 /* FlashcardView.swift */,
+A22222220000000000000010 /* VerbOfTheDayView.swift */,
+A22222220000000000000011 /* PracticeMenuView.swift */,
+A22222220000000000000012 /* ProgressView.swift */,
+);
+path = Views;
+sourceTree = "<group>";
+};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+A55555550000000000000001 /* VerbosEspanol */ = {
+isa = PBXNativeTarget;
+buildConfigurationList = A66666660000000000000001 /* Build configuration list for PBXNativeTarget "VerbosEspanol" */;
+buildPhases = (
+A55555550000000000000002 /* Sources */,
+A33333330000000000000001 /* Frameworks */,
+A55555550000000000000003 /* Resources */,
+);
+buildRules = (
+);
+dependencies = (
+);
+name = VerbosEspanol;
+productName = VerbosEspanol;
+productReference = A00000000000000000000001 /* VerbosEspanol.app */;
+productType = "com.apple.product-type.application";
+};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+A77777770000000000000001 /* Project object */ = {
+isa = PBXProject;
+attributes = {
+BuildIndependentTargetsInParallel = 1;
+LastSwiftUpdateCheck = 1500;
+LastUpgradeCheck = 1500;
+TargetAttributes = {
+A55555550000000000000001 = {
+CreatedOnToolsVersion = 15.0;
+};
+};
+};
+buildConfigurationList = A66666660000000000000002 /* Build configuration list for PBXProject "VerbosEspanol" */;
+compatibilityVersion = "Xcode 14.0";
+developmentRegion = en;
+hasScannedForEncodings = 0;
+knownRegions = (
+en,
+Base,
+es,
+);
+mainGroup = A44444440000000000000001;
+productRefGroup = A44444440000000000000003 /* Products */;
+projectDirPath = "";
+projectRoot = "";
+targets = (
+A55555550000000000000001 /* VerbosEspanol */,
+);
+};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+A55555550000000000000003 /* Resources */ = {
+isa = PBXResourcesBuildPhase;
+buildActionMask = 2147483647;
+files = (
+A11111110000000000000020 /* Assets.xcassets in Resources */,
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+A55555550000000000000002 /* Sources */ = {
+isa = PBXSourcesBuildPhase;
+buildActionMask = 2147483647;
+files = (
+A11111110000000000000001 /* VerbosEspanolApp.swift in Sources */,
+A11111110000000000000002 /* ContentView.swift in Sources */,
+A11111110000000000000003 /* Verb.swift in Sources */,
+A11111110000000000000004 /* VerbData.swift in Sources */,
+A11111110000000000000005 /* LearningManager.swift in Sources */,
+A11111110000000000000006 /* WritingExerciseView.swift in Sources */,
+A11111110000000000000007 /* SpeakingExerciseView.swift in Sources */,
+A11111110000000000000008 /* VerbListView.swift in Sources */,
+A11111110000000000000009 /* FlashcardView.swift in Sources */,
+A11111110000000000000010 /* VerbOfTheDayView.swift in Sources */,
+A11111110000000000000011 /* PracticeMenuView.swift in Sources */,
+A11111110000000000000012 /* ProgressView.swift in Sources */,
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+A88888880000000000000001 /* Debug */ = {
+isa = XCBuildConfiguration;
+buildSettings = {
+ALWAYS_SEARCH_USER_PATHS = NO;
+ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+CLANG_ANALYZER_NONNULL = YES;
+CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+CLANG_ENABLE_MODULES = YES;
+CLANG_ENABLE_OBJC_ARC = YES;
+CLANG_ENABLE_OBJC_WEAK = YES;
+CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+CLANG_WARN_BOOL_CONVERSION = YES;
+CLANG_WARN_COMMA = YES;
+CLANG_WARN_CONSTANT_CONVERSION = YES;
+CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+CLANG_WARN_EMPTY_BODY = YES;
+CLANG_WARN_ENUM_CONVERSION = YES;
+CLANG_WARN_INFINITE_RECURSION = YES;
+CLANG_WARN_INT_CONVERSION = YES;
+CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+CLANG_WARN_STRICT_PROTOTYPES = YES;
+CLANG_WARN_SUSPICIOUS_MOVE = YES;
+CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+CLANG_WARN_UNREACHABLE_CODE = YES;
+CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+COPY_PHASE_STRIP = NO;
+DEBUG_INFORMATION_FORMAT = dwarf;
+ENABLE_STRICT_OBJC_MSGSEND = YES;
+ENABLE_TESTABILITY = YES;
+ENABLE_USER_SCRIPT_SANDBOXING = YES;
+GCC_C_LANGUAGE_STANDARD = gnu17;
+GCC_DYNAMIC_NO_PIC = NO;
+GCC_NO_COMMON_BLOCKS = YES;
+GCC_OPTIMIZATION_LEVEL = 0;
+GCC_PREPROCESSOR_DEFINITIONS = (
+"DEBUG=1",
+"$(inherited)",
+);
+GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+GCC_WARN_UNDECLARED_SELECTOR = YES;
+GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+GCC_WARN_UNUSED_FUNCTION = YES;
+GCC_WARN_UNUSED_VARIABLE = YES;
+IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+MTL_FAST_MATH = YES;
+ONLY_ACTIVE_ARCH = YES;
+SDKROOT = iphoneos;
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+};
+name = Debug;
+};
+A88888880000000000000002 /* Release */ = {
+isa = XCBuildConfiguration;
+buildSettings = {
+ALWAYS_SEARCH_USER_PATHS = NO;
+ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+CLANG_ANALYZER_NONNULL = YES;
+CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+CLANG_ENABLE_MODULES = YES;
+CLANG_ENABLE_OBJC_ARC = YES;
+CLANG_ENABLE_OBJC_WEAK = YES;
+CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+CLANG_WARN_BOOL_CONVERSION = YES;
+CLANG_WARN_COMMA = YES;
+CLANG_WARN_CONSTANT_CONVERSION = YES;
+CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+CLANG_WARN_EMPTY_BODY = YES;
+CLANG_WARN_ENUM_CONVERSION = YES;
+CLANG_WARN_INFINITE_RECURSION = YES;
+CLANG_WARN_INT_CONVERSION = YES;
+CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+CLANG_WARN_STRICT_PROTOTYPES = YES;
+CLANG_WARN_SUSPICIOUS_MOVE = YES;
+CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+CLANG_WARN_UNREACHABLE_CODE = YES;
+CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+COPY_PHASE_STRIP = NO;
+DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+ENABLE_NS_ASSERTIONS = NO;
+ENABLE_STRICT_OBJC_MSGSEND = YES;
+ENABLE_USER_SCRIPT_SANDBOXING = YES;
+GCC_C_LANGUAGE_STANDARD = gnu17;
+GCC_NO_COMMON_BLOCKS = YES;
+GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+GCC_WARN_UNDECLARED_SELECTOR = YES;
+GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+GCC_WARN_UNUSED_FUNCTION = YES;
+GCC_WARN_UNUSED_VARIABLE = YES;
+IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+MTL_ENABLE_DEBUG_INFO = NO;
+MTL_FAST_MATH = YES;
+SDKROOT = iphoneos;
+SWIFT_COMPILATION_MODE = wholemodule;
+VALIDATE_PRODUCT = YES;
+};
+name = Release;
+};
+A88888880000000000000003 /* Debug */ = {
+isa = XCBuildConfiguration;
+buildSettings = {
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+CODE_SIGN_STYLE = Automatic;
+CURRENT_PROJECT_VERSION = 1;
+DEVELOPMENT_TEAM = "";
+GENERATE_INFOPLIST_FILE = YES;
+INFOPLIST_KEY_NSMicrophoneUsageDescription = "Used for speech recognition in speaking exercises";
+INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Used to recognize your spoken Spanish conjugations";
+INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+LD_RUNPATH_SEARCH_PATHS = (
+"$(inherited)",
+"@executable_path/Frameworks",
+);
+MARKETING_VERSION = 1.0;
+PRODUCT_BUNDLE_IDENTIFIER = com.verbosespanol.app;
+PRODUCT_NAME = "$(TARGET_NAME)";
+SWIFT_EMIT_LOC_STRINGS = YES;
+SWIFT_VERSION = 5.0;
+TARGETED_DEVICE_FAMILY = "1,2";
+};
+name = Debug;
+};
+A88888880000000000000004 /* Release */ = {
+isa = XCBuildConfiguration;
+buildSettings = {
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+CODE_SIGN_STYLE = Automatic;
+CURRENT_PROJECT_VERSION = 1;
+DEVELOPMENT_TEAM = "";
+GENERATE_INFOPLIST_FILE = YES;
+INFOPLIST_KEY_NSMicrophoneUsageDescription = "Used for speech recognition in speaking exercises";
+INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Used to recognize your spoken Spanish conjugations";
+INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+LD_RUNPATH_SEARCH_PATHS = (
+"$(inherited)",
+"@executable_path/Frameworks",
+);
+MARKETING_VERSION = 1.0;
+PRODUCT_BUNDLE_IDENTIFIER = com.verbosespanol.app;
+PRODUCT_NAME = "$(TARGET_NAME)";
+SWIFT_EMIT_LOC_STRINGS = YES;
+SWIFT_VERSION = 5.0;
+TARGETED_DEVICE_FAMILY = "1,2";
+};
+name = Release;
+};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+A66666660000000000000001 /* Build configuration list for PBXNativeTarget "VerbosEspanol" */ = {
+isa = XCConfigurationList;
+buildConfigurations = (
+A88888880000000000000003 /* Debug */,
+A88888880000000000000004 /* Release */,
+);
+defaultConfigurationIsVisible = 0;
+defaultConfigurationName = Release;
+};
+A66666660000000000000002 /* Build configuration list for PBXProject "VerbosEspanol" */ = {
+isa = XCConfigurationList;
+buildConfigurations = (
+A88888880000000000000001 /* Debug */,
+A88888880000000000000002 /* Release */,
+);
+defaultConfigurationIsVisible = 0;
+defaultConfigurationName = Release;
+};
+/* End XCConfigurationList section */
+};
+rootObject = A77777770000000000000001 /* Project object */;
+}
