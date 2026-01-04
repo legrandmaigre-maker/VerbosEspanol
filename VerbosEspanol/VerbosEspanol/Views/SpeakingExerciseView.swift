@@ -91,15 +91,21 @@ struct SpeakingExerciseView: View {
                     
                     HStack(spacing: 16) {
                         if showResult || !speechRecognizer.transcript.isEmpty {
-                            Button("Comprobar") { checkAnswer() }
-                                .buttonStyle(.borderedProminent)
-                                .tint(.green)
-                                .disabled(speechRecognizer.transcript.isEmpty)
+                            Button("Comprobar") {
+                                checkAnswer()
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(.green)
+                            .disabled(speechRecognizer.transcript.isEmpty)
                         }
-                        Button("Siguiente") { nextQuestion() }.buttonStyle(.bordered)
+                        Button("Siguiente") {
+                            nextQuestion()
+                        }.buttonStyle(.bordered)
                     }
                 }
+                
                 Spacer()
+                
                 Text("💡 Habla claro y a velocidad normal")
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -122,12 +128,16 @@ struct SpeakingExerciseView: View {
     private func requestPermission() {
         SFSpeechRecognizer.requestAuthorization { status in
             DispatchQueue.main.async {
-                if status != .authorized { showPermissionAlert = true }
+                if status != .authorized {
+                    showPermissionAlert = true
+                }
             }
         }
         AVAudioSession.sharedInstance().requestRecordPermission { granted in
             DispatchQueue.main.async {
-                if !granted { showPermissionAlert = true }
+                if !granted {
+                    showPermissionAlert = true
+                }
             }
         }
     }
@@ -159,7 +169,9 @@ struct SpeakingExerciseView: View {
         showResult = true
     }
     
-    private func nextQuestion() { generateQuestion() }
+    private func nextQuestion() {
+        generateQuestion()
+    }
 }
 
 class SpeechRecognizer: ObservableObject {
@@ -179,7 +191,9 @@ class SpeechRecognizer: ObservableObject {
             try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetooth])
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
-            DispatchQueue.main.async { self.errorMessage = "Error de audio: \(error.localizedDescription)" }
+            DispatchQueue.main.async {
+                self.errorMessage = "Error de audio: \(error.localizedDescription)"
+            }
             return
         }
         
@@ -191,26 +205,43 @@ class SpeechRecognizer: ObservableObject {
         recognitionRequest.shouldReportPartialResults = true
         
         let inputNode = audioEngine.inputNode
-        let recordingFormat = AVAudioFormat(standardFormatWithSampleRate: 44100, channels: 1)!
+        
+        // Use the input node's native format - critical fix for format mismatch
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        
+        // Check if the format is valid (sample rate > 0)
+        guard recordingFormat.sampleRate > 0 else {
+            DispatchQueue.main.async {
+                self.errorMessage = "No se puede acceder al micrófono. Por favor, usa un dispositivo real."
+            }
+            return
+        }
         
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
             recognitionRequest.append(buffer)
         }
         
         audioEngine.prepare()
+        
         do {
             try audioEngine.start()
         } catch {
-            DispatchQueue.main.async { self.errorMessage = "No se pudo iniciar: \(error.localizedDescription)" }
+            DispatchQueue.main.async {
+                self.errorMessage = "No se pudo iniciar: \(error.localizedDescription)"
+            }
             return
         }
         
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { [weak self] result, error in
             if let result = result {
-                DispatchQueue.main.async { self?.transcript = result.bestTranscription.formattedString }
+                DispatchQueue.main.async {
+                    self?.transcript = result.bestTranscription.formattedString
+                }
             }
             if let error = error, (error as NSError).code != 216 {
-                DispatchQueue.main.async { self?.errorMessage = "Error: \(error.localizedDescription)" }
+                DispatchQueue.main.async {
+                    self?.errorMessage = "Error: \(error.localizedDescription)"
+                }
             }
         }
     }
