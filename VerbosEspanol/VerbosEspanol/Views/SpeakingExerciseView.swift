@@ -18,7 +18,6 @@ struct SpeakingExerciseView: View {
         NavigationStack {
             VStack(spacing: 24) {
                 if let verb = currentVerb {
-                    // Verb Card
                     VStack(spacing: 16) {
                         Text("🎤")
                             .font(.system(size: 60))
@@ -38,21 +37,13 @@ struct SpeakingExerciseView: View {
                         
                         HStack(spacing: 20) {
                             VStack {
-                                Text("Tiempo")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                Text(currentTense.rawValue)
-                                    .font(.headline)
+                                Text("Tiempo").font(.caption).foregroundColor(.secondary)
+                                Text(currentTense.rawValue).font(.headline)
                             }
-                            
                             Divider().frame(height: 40)
-                            
                             VStack {
-                                Text("Persona")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                Text(currentPerson.rawValue)
-                                    .font(.headline)
+                                Text("Persona").font(.caption).foregroundColor(.secondary)
+                                Text(currentPerson.rawValue).font(.headline)
                             }
                         }
                     }
@@ -61,14 +52,9 @@ struct SpeakingExerciseView: View {
                     .cornerRadius(20)
                     .shadow(radius: 5)
                     
-                    // Recording section
                     VStack(spacing: 16) {
-                        // Recognized text
                         if !speechRecognizer.transcript.isEmpty {
-                            Text("Tu respuesta:")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                            
+                            Text("Tu respuesta:").font(.caption).foregroundColor(.secondary)
                             Text(speechRecognizer.transcript)
                                 .font(.title2)
                                 .fontWeight(.medium)
@@ -78,57 +64,45 @@ struct SpeakingExerciseView: View {
                                 .cornerRadius(12)
                         }
                         
-                        // Recording button
+                        if let error = speechRecognizer.errorMessage {
+                            Text(error).font(.caption).foregroundColor(.red).padding()
+                        }
+                        
                         Button(action: toggleRecording) {
                             ZStack {
                                 Circle()
                                     .fill(isRecording ? Color.red : Color.purple)
                                     .frame(width: 80, height: 80)
                                     .shadow(color: isRecording ? .red.opacity(0.5) : .purple.opacity(0.5), radius: 10)
-                                
                                 Image(systemName: isRecording ? "stop.fill" : "mic.fill")
                                     .font(.title)
                                     .foregroundColor(.white)
                             }
                         }
-                        .scaleEffect(isRecording ? 1.1 : 1.0)
-                        .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: isRecording)
                         
                         Text(isRecording ? "Grabando... Toca para parar" : "Toca para hablar")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
                     
-                    // Result
                     if showResult {
                         ResultView(isCorrect: isCorrect, correctAnswer: correctAnswer, userAnswer: speechRecognizer.transcript)
                     }
                     
-                    // Buttons
                     HStack(spacing: 16) {
                         if showResult || !speechRecognizer.transcript.isEmpty {
-                            Button("Comprobar") {
-                                checkAnswer()
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .tint(.green)
-                            .disabled(speechRecognizer.transcript.isEmpty)
+                            Button("Comprobar") { checkAnswer() }
+                                .buttonStyle(.borderedProminent)
+                                .tint(.green)
+                                .disabled(speechRecognizer.transcript.isEmpty)
                         }
-                        
-                        Button("Siguiente") {
-                            nextQuestion()
-                        }
-                        .buttonStyle(.bordered)
+                        Button("Siguiente") { nextQuestion() }.buttonStyle(.bordered)
                     }
                 }
-                
                 Spacer()
-                
-                // Pronunciation tip
-                Text("💡 Habla claro y a velocidad normal para mejores resultados")
+                Text("💡 Habla claro y a velocidad normal")
                     .font(.caption)
                     .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
                     .padding()
             }
             .padding()
@@ -140,7 +114,7 @@ struct SpeakingExerciseView: View {
             .alert("Permiso de Micrófono", isPresented: $showPermissionAlert) {
                 Button("OK") { }
             } message: {
-                Text("Por favor, permite el acceso al micrófono en Configuración para usar esta función.")
+                Text("Por favor, permite el acceso al micrófono en Configuración.")
             }
         }
     }
@@ -148,9 +122,12 @@ struct SpeakingExerciseView: View {
     private func requestPermission() {
         SFSpeechRecognizer.requestAuthorization { status in
             DispatchQueue.main.async {
-                if status != .authorized {
-                    showPermissionAlert = true
-                }
+                if status != .authorized { showPermissionAlert = true }
+            }
+        }
+        AVAudioSession.sharedInstance().requestRecordPermission { granted in
+            DispatchQueue.main.async {
+                if !granted { showPermissionAlert = true }
             }
         }
     }
@@ -182,13 +159,12 @@ struct SpeakingExerciseView: View {
         showResult = true
     }
     
-    private func nextQuestion() {
-        generateQuestion()
-    }
+    private func nextQuestion() { generateQuestion() }
 }
 
 class SpeechRecognizer: ObservableObject {
     @Published var transcript = ""
+    @Published var errorMessage: String?
     
     private var audioEngine: AVAudioEngine?
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -198,35 +174,43 @@ class SpeechRecognizer: ObservableObject {
     func startTranscribing() {
         resetTranscript()
         
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetooth])
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            DispatchQueue.main.async { self.errorMessage = "Error de audio: \(error.localizedDescription)" }
+            return
+        }
+        
         audioEngine = AVAudioEngine()
         guard let audioEngine = audioEngine else { return }
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         guard let recognitionRequest = recognitionRequest else { return }
-        
         recognitionRequest.shouldReportPartialResults = true
         
         let inputNode = audioEngine.inputNode
-        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        let recordingFormat = AVAudioFormat(standardFormatWithSampleRate: 44100, channels: 1)!
         
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
             recognitionRequest.append(buffer)
         }
         
         audioEngine.prepare()
-        
         do {
             try audioEngine.start()
         } catch {
-            print("Audio engine failed: \(error)")
+            DispatchQueue.main.async { self.errorMessage = "No se pudo iniciar: \(error.localizedDescription)" }
             return
         }
         
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { [weak self] result, error in
             if let result = result {
-                DispatchQueue.main.async {
-                    self?.transcript = result.bestTranscription.formattedString
-                }
+                DispatchQueue.main.async { self?.transcript = result.bestTranscription.formattedString }
+            }
+            if let error = error, (error as NSError).code != 216 {
+                DispatchQueue.main.async { self?.errorMessage = "Error: \(error.localizedDescription)" }
             }
         }
     }
@@ -236,9 +220,14 @@ class SpeechRecognizer: ObservableObject {
         audioEngine?.inputNode.removeTap(onBus: 0)
         recognitionRequest?.endAudio()
         recognitionTask?.cancel()
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        audioEngine = nil
+        recognitionRequest = nil
+        recognitionTask = nil
     }
     
     func resetTranscript() {
         transcript = ""
+        errorMessage = nil
     }
 }
